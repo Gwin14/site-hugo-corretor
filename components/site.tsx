@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
-import { ArrowUpRight, Menu, X, Heart, MessageCircle } from "lucide-react";
+import { Menu, X, Heart, MessageCircle } from "lucide-react";
 import { business } from "@/lib/properties";
 export function Brand() {
   return (
@@ -10,7 +10,7 @@ export function Brand() {
         <img src="/images/logo-hugo.jpg" alt="" />
       </span>
       <span>
-        HUGO HENRIQUE<small>CORRETOR DE IMÓVEIS</small>
+        Hugo Henrique<small>Corretor de imóveis</small>
       </span>
     </Link>
   );
@@ -29,7 +29,7 @@ export function Header() {
             Imóveis
           </Link>
           <Link onClick={() => setOpen(false)} href="/#sobre">
-            Sobre o Hugo
+            Sobre mim
           </Link>
           <Link onClick={() => setOpen(false)} href="/#regioes">
             Cidades
@@ -43,10 +43,10 @@ export function Header() {
           href="/?favoritos=1#imoveis"
           aria-label="Meus imóveis favoritos"
         >
-          <Heart size={19} />
+          <Heart size={20} />
         </a>
         <Link className="button button-small header-cta" href="/#contato">
-          Falar com Hugo <ArrowUpRight size={16} />
+          Falar com o Hugo
         </Link>
         <button
           className="menu-toggle"
@@ -66,24 +66,16 @@ export function Footer() {
       <footer>
         <div className="container footer-top">
           <Brand />
-          <p>
-            Compra, venda e locação
-            <br />
-            no litoral de Santa Catarina.
-          </p>
+          <p>Venda e aluguel em Florianópolis, Balneário Camboriú e Itapema.</p>
           <div>
             <a href="/#imoveis">Imóveis</a>
-            <a href="/#sobre">Sobre o Hugo</a>
-            <a href="/#contato">Entre em contato</a>
+            <a href="/#sobre">Sobre mim</a>
+            <a href="/#contato">Contato</a>
+            <Link href="/privacidade">Privacidade</Link>
           </div>
         </div>
         <div className="container footer-bottom">
-          <span>
-            © {new Date().getFullYear()} Hugo Henrique. Todos os direitos
-            reservados.
-          </span>
-          <Link href="/privacidade">Privacidade</Link>
-          <span>Florianópolis · Balneário Camboriú · Itapema</span>
+          <span>© {new Date().getFullYear()} Hugo Henrique</span>
         </div>
       </footer>
       <a
@@ -108,17 +100,16 @@ export function Contact({
     <section id="contato" className="contact-section">
       <div className="container contact-grid">
         <div>
-          <h2>
-            Fale com <em>Hugo</em>
-          </h2>
+          <h2>Vamos conversar</h2>
           <p>
-            Informe a cidade, o tipo de imóvel e seu orçamento.
-            <br className="desktop-break" /> Para um anúncio específico, inclua
-            o código do imóvel.
+            Escreve aqui o que você procura: cidade, tipo de imóvel e mais ou
+            menos quanto quer gastar. Se for sobre um anúncio do site, coloca o
+            código dele.
           </p>
-          <div className="contact-signature">
-            Hugo Henrique<span>Corretor de imóveis</span>
-          </div>
+          <p>
+            A mensagem abre no seu WhatsApp ou e-mail já preenchida. Você
+            confere e envia.
+          </p>
         </div>
         <form
           onSubmit={(e) => {
@@ -148,7 +139,6 @@ export function Contact({
             <input
               name="name"
               autoComplete="name"
-              placeholder="Nome completo"
               required
               maxLength={100}
             />
@@ -157,13 +147,13 @@ export function Contact({
             E-mail ou WhatsApp
             <input
               name="contact"
-              placeholder="Seu e-mail ou telefone com DDD"
+              placeholder="Telefone com DDD ou e-mail"
               required
               maxLength={150}
             />
           </label>
           <label>
-            Como posso ajudar?
+            Mensagem
             <textarea
               name="message"
               defaultValue={subject}
@@ -175,11 +165,11 @@ export function Contact({
             <input type="checkbox" required />{" "}
             <span>
               Li a <Link href="/privacidade">política de privacidade</Link> e
-              concordo com o contato.
+              concordo em ser contatado.
             </span>
           </label>
           <button className="button" type="submit">
-            Preparar mensagem <ArrowUpRight size={18} />
+            Preparar mensagem
           </button>
           <p className="form-status" role="status">
             {status}

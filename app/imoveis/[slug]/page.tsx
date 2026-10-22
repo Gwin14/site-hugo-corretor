@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { BedDouble, CarFront, Scan, Bath, ArrowUpRight } from "lucide-react";
+import { BedDouble, CarFront, Scan, Bath, ArrowRight } from "lucide-react";
 import { properties, money } from "@/lib/properties";
 import { Header, Footer, Contact } from "@/components/site";
 export function generateStaticParams() {
@@ -46,7 +46,7 @@ export default async function Property({
               </p>
             </div>
             <a className="text-link" href="#contato">
-              Pedir informações <ArrowUpRight size={18} />
+              Pedir informações <ArrowRight size={16} />
             </a>
           </div>
           <img
@@ -85,18 +85,18 @@ export default async function Property({
             </div>
             <aside className="price-panel">
               <small>
-                {p.purpose === "Comprar" ? "VALOR DE VENDA" : "ALUGUEL MENSAL"}
+                {p.purpose === "Comprar" ? "Valor de venda" : "Aluguel mensal"}
               </small>
               <strong>
                 {money(p.price)}
-                {p.purpose === "Alugar" ? " /mês" : ""}
+                {p.purpose === "Alugar" ? " por mês" : ""}
               </strong>
               <a href="#contato" className="button">
-                Pedir informações <ArrowUpRight size={17} />
+                Pedir informações
               </a>
               <p className="demo-notice">
-                Informe o código HH{String(p.id).padStart(3, "0")} no contato
-                para identificar este imóvel.
+                Código do imóvel: HH{String(p.id).padStart(3, "0")}. Coloque ele
+                na mensagem para eu saber de qual anúncio se trata.
               </p>
             </aside>
           </div>
